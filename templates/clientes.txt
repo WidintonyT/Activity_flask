@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente - Confirmación de Compra</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/clientes.css')}}">
+</head>
+<body>
+    <div class="purchase-card">
+        <div class="success-icon">✅</div>
+        
+        <h1>¡Compra Exitosa!</h1>
+        
+        <p class="client-name">{{client}}</p>
+        
+        <div class="divider"></div>
+        
+        <div class="product-section">
+            <h3>Has adquirido:</h3>
+            <p class="product-name">{{product}}</p>
+        </div>
+        
+        <a href="/" class="back-button">Volver al Inicio</a>
+    </div>
+</body>
+</html>
