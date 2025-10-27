@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Flask - Sesiones</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <header class="header">
+            <div class="logo">🔥 Flask Sessions</div>
+            <p class="tagline">Aprende sobre sesiones en Flask de manera práctica</p>
+        </header>
+
+        <!--Presentación -->
+        <section class="hero">
+            <h1>Bienvenido al Tutorial de Sesiones</h1>
+            <p class="hero-subtitle">Explora cómo Flask maneja sesiones y datos de usuario</p>
+        </section>
+
+        <!--Sesión Activa Configuración -->
+        {% if usuario %}
+        <div class="session-active">
+            <div class="session-header">
+                <span class="status-badge">✓ Sesión Activa</span>
+                <h3>Información de tu Sesión</h3>
+            </div>
+            <div class="session-content">
+                <div class="info-item">
+                    <span class="icon">👤</span>
+                    <div>
+                        <p class="label">Nombre</p>
+                        <p class="value">{{usuario['name']}}</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="icon">📧</span>
+                    <div>
+                        <p class="label">Correo</p>
+                        <p class="value">{{usuario['email']}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="session-inactive">
+            <span class="icon-large">🔓</span>
+            <h3>No hay sesión activa</h3>
+            <p>Registra tus datos para crear una sesión</p>
+        </div>
+        {% endif %}
+
+        <!-- Contenedor de tarjetas -->
+        <div class="navigation-grid">
+            <a href="/register" class="nav-card card-register">
+                <div class="card-icon">📝</div>
+                <h3>Registro</h3>
+                <p>Crea una sesión nueva ingresando tus datos</p>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="/clientes/Juan/Laptop" class="nav-card card-clientes">
+                <div class="card-icon">🛒</div>
+                <h3>Clientes</h3>
+                <p>Simula una compra y ve los parámetros de URL</p>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+
+        <!--Ejemnplos vista -->
+        <div class="example-section">
+            <h2>📊 Datos de Ejemplo</h2>
+            <p class="section-subtitle">Así es como Flask maneja diccionarios y listas</p>
+            
+            <div class="data-grid">
+                {% for i in range(values['names'].__len__()) %}
+                <div class="data-card">
+                    <div class="data-number">{{ i + 1 }}</div>
+                    <div class="data-info">
+                        <p class="data-name">{{ values['names'][i] }}</p>
+                        <p class="data-age">{{ values['ages'][i] }} años</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Pie de Página -->
+        <footer class="footer">
+            <p class="footer-p">  Este es un proyecto práctico sobre Flask Sessions</p>
+           
+        </footer>
+    </div>
+</body>
+</html>
