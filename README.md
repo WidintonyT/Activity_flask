@@ -1,2 +1,9 @@
 # Activity_flask
-Pequeño ejercicio para verificar uso y funcionamiento de flask.
+INSTRUCCIONES DE EJECUCIÓN
+Ejecutamos terminal:
+
+python -m venv entorno
+.\entorno\Scripts\activate
+pip install flask
+flask --app app run --debug
+
